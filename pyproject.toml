@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "effio-contracts"
-version = "0.1.6"
+version = "0.1.7"
 description = "Shared contracts and schemas for effio microservices"
 dependencies = [
     "pydantic>=2.0.0",
@@ -12,4 +12,4 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["effio_contracts*"]
+include = ["effio*"]
