@@ -2,7 +2,7 @@ from enum import Enum
 
 
 class AccountServiceContract:
-    ENV_URL = "AUTH_SERVICE_URL"
+    ENV_URL = "ACCOUNT_SERVICE_URL"
 
     class V1(str, Enum):
         GET_BY_ID = "/v1/account/get_by_id"
