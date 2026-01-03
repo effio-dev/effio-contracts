@@ -16,6 +16,8 @@ jobs:
         with:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: effio-dev
+          repositories: effio_contracts
 
       - name: Checkout code
         uses: actions/checkout@v4
