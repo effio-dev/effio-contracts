@@ -7,7 +7,12 @@ name = "effio-contracts"
 version = "0.1.7"
 description = "Shared contracts and schemas for effio microservices"
 dependencies = [
-    "pydantic>=2.0.0",
+    "pydantic[email]>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "datamodel-code-generator>=0.25.0",
 ]
 
 [tool.setuptools.packages.find]
