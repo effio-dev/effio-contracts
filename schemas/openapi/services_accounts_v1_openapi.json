@@ -1,0 +1,808 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Public API v1",
+    "version": "1.0.0",
+    "description": "OpenAPI spec for public /v1 endpoints. Generated from Pydantic models."
+  },
+  "paths": {
+    "/v1/account/get_by_id": {
+      "get": {
+        "summary": "Get account by id",
+        "description": "",
+        "tags": [
+          "Accounts"
+        ],
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Account Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized access"
+          },
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "account_id": {
+                      "format": "uuid",
+                      "title": "Account Id",
+                      "type": "string"
+                    },
+                    "email_address": {
+                      "title": "Email Address",
+                      "type": "string"
+                    },
+                    "first_name": {
+                      "title": "First Name",
+                      "type": "string"
+                    },
+                    "last_name": {
+                      "title": "Last Name",
+                      "type": "string"
+                    },
+                    "account_type": {
+                      "title": "Account Type",
+                      "type": "string"
+                    },
+                    "birthdate": {
+                      "format": "date",
+                      "title": "Birthdate",
+                      "type": "string"
+                    },
+                    "address_line1": {
+                      "title": "Address Line1",
+                      "type": "string"
+                    },
+                    "address_line2": {
+                      "title": "Address Line2",
+                      "type": "string"
+                    },
+                    "city": {
+                      "title": "City",
+                      "type": "string"
+                    },
+                    "state": {
+                      "title": "State",
+                      "type": "string"
+                    },
+                    "postal_code": {
+                      "title": "Postal Code",
+                      "type": "string"
+                    },
+                    "phone_number": {
+                      "title": "Phone Number",
+                      "type": "string"
+                    },
+                    "is_email_verified": {
+                      "title": "Is Email Verified",
+                      "type": "boolean"
+                    },
+                    "is_phone_number_verified": {
+                      "title": "Is Phone Number Verified",
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "account_id",
+                    "email_address",
+                    "first_name",
+                    "last_name",
+                    "account_type",
+                    "birthdate",
+                    "address_line1",
+                    "address_line2",
+                    "city",
+                    "state",
+                    "postal_code",
+                    "phone_number",
+                    "is_email_verified",
+                    "is_phone_number_verified"
+                  ],
+                  "title": "AccountView",
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/account/get_all": {
+      "get": {
+        "summary": "Get all accounts",
+        "description": "",
+        "tags": [
+          "Accounts"
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized access"
+          },
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "account_id": {
+                        "format": "uuid",
+                        "title": "Account Id",
+                        "type": "string"
+                      },
+                      "email_address": {
+                        "title": "Email Address",
+                        "type": "string"
+                      },
+                      "first_name": {
+                        "title": "First Name",
+                        "type": "string"
+                      },
+                      "last_name": {
+                        "title": "Last Name",
+                        "type": "string"
+                      },
+                      "account_type": {
+                        "title": "Account Type",
+                        "type": "string"
+                      },
+                      "birthdate": {
+                        "format": "date",
+                        "title": "Birthdate",
+                        "type": "string"
+                      },
+                      "address_line1": {
+                        "title": "Address Line1",
+                        "type": "string"
+                      },
+                      "address_line2": {
+                        "title": "Address Line2",
+                        "type": "string"
+                      },
+                      "city": {
+                        "title": "City",
+                        "type": "string"
+                      },
+                      "state": {
+                        "title": "State",
+                        "type": "string"
+                      },
+                      "postal_code": {
+                        "title": "Postal Code",
+                        "type": "string"
+                      },
+                      "phone_number": {
+                        "title": "Phone Number",
+                        "type": "string"
+                      },
+                      "is_email_verified": {
+                        "title": "Is Email Verified",
+                        "type": "boolean"
+                      },
+                      "is_phone_number_verified": {
+                        "title": "Is Phone Number Verified",
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "account_id",
+                      "email_address",
+                      "first_name",
+                      "last_name",
+                      "account_type",
+                      "birthdate",
+                      "address_line1",
+                      "address_line2",
+                      "city",
+                      "state",
+                      "postal_code",
+                      "phone_number",
+                      "is_email_verified",
+                      "is_phone_number_verified"
+                    ],
+                    "title": "AccountView",
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/account/create": {
+      "post": {
+        "summary": "Create account",
+        "description": "",
+        "tags": [
+          "Accounts"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "email_address": {
+                    "title": "Email Address",
+                    "type": "string"
+                  },
+                  "password": {
+                    "title": "Password",
+                    "type": "string"
+                  },
+                  "first_name": {
+                    "title": "First Name",
+                    "type": "string"
+                  },
+                  "last_name": {
+                    "title": "Last Name",
+                    "type": "string"
+                  },
+                  "birthdate": {
+                    "format": "date",
+                    "title": "Birthdate",
+                    "type": "string"
+                  },
+                  "address_line1": {
+                    "title": "Address Line1",
+                    "type": "string"
+                  },
+                  "address_line2": {
+                    "title": "Address Line2",
+                    "type": "string"
+                  },
+                  "city": {
+                    "title": "City",
+                    "type": "string"
+                  },
+                  "state": {
+                    "title": "State",
+                    "type": "string"
+                  },
+                  "postal_code": {
+                    "title": "Postal Code",
+                    "type": "string"
+                  },
+                  "phone_number": {
+                    "title": "Phone Number",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email_address",
+                  "password",
+                  "first_name",
+                  "last_name",
+                  "birthdate",
+                  "address_line1",
+                  "address_line2",
+                  "city",
+                  "state",
+                  "postal_code",
+                  "phone_number"
+                ],
+                "title": "AccountCreate",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "Unauthorized access"
+          },
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "account_id": {
+                      "format": "uuid",
+                      "title": "Account Id",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "account_id"
+                  ],
+                  "title": "AccountID",
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/account/create_admin": {
+      "post": {
+        "summary": "Create admin account",
+        "description": "Requires admin privileges.",
+        "tags": [
+          "Accounts"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "email_address": {
+                    "title": "Email Address",
+                    "type": "string"
+                  },
+                  "password": {
+                    "title": "Password",
+                    "type": "string"
+                  },
+                  "first_name": {
+                    "title": "First Name",
+                    "type": "string"
+                  },
+                  "last_name": {
+                    "title": "Last Name",
+                    "type": "string"
+                  },
+                  "birthdate": {
+                    "format": "date",
+                    "title": "Birthdate",
+                    "type": "string"
+                  },
+                  "address_line1": {
+                    "title": "Address Line1",
+                    "type": "string"
+                  },
+                  "address_line2": {
+                    "title": "Address Line2",
+                    "type": "string"
+                  },
+                  "city": {
+                    "title": "City",
+                    "type": "string"
+                  },
+                  "state": {
+                    "title": "State",
+                    "type": "string"
+                  },
+                  "postal_code": {
+                    "title": "Postal Code",
+                    "type": "string"
+                  },
+                  "phone_number": {
+                    "title": "Phone Number",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email_address",
+                  "password",
+                  "first_name",
+                  "last_name",
+                  "birthdate",
+                  "address_line1",
+                  "address_line2",
+                  "city",
+                  "state",
+                  "postal_code",
+                  "phone_number"
+                ],
+                "title": "AccountCreate",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "Unauthorized access"
+          },
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "account_id": {
+                      "format": "uuid",
+                      "title": "Account Id",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "account_id"
+                  ],
+                  "title": "AccountID",
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/account/update": {
+      "post": {
+        "summary": "Update account",
+        "description": "Partial update: only provided fields will be updated.",
+        "tags": [
+          "Accounts"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "account_id": {
+                    "format": "uuid",
+                    "title": "Account Id",
+                    "type": "string"
+                  },
+                  "email_address": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Email Address"
+                  },
+                  "first_name": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "First Name"
+                  },
+                  "last_name": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Last Name"
+                  },
+                  "birthdate": {
+                    "anyOf": [
+                      {
+                        "format": "date",
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Birthdate"
+                  },
+                  "address_line1": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Address Line1"
+                  },
+                  "address_line2": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Address Line2"
+                  },
+                  "city": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "City"
+                  },
+                  "state": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "State"
+                  },
+                  "postal_code": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Postal Code"
+                  },
+                  "phone_number": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Phone Number"
+                  },
+                  "is_active": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "default": null,
+                    "title": "Is Active"
+                  }
+                },
+                "required": [
+                  "account_id"
+                ],
+                "title": "AccountUpdate",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "Unauthorized access"
+          },
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "account_id": {
+                      "format": "uuid",
+                      "title": "Account Id",
+                      "type": "string"
+                    },
+                    "email_address": {
+                      "title": "Email Address",
+                      "type": "string"
+                    },
+                    "first_name": {
+                      "title": "First Name",
+                      "type": "string"
+                    },
+                    "last_name": {
+                      "title": "Last Name",
+                      "type": "string"
+                    },
+                    "account_type": {
+                      "title": "Account Type",
+                      "type": "string"
+                    },
+                    "birthdate": {
+                      "format": "date",
+                      "title": "Birthdate",
+                      "type": "string"
+                    },
+                    "address_line1": {
+                      "title": "Address Line1",
+                      "type": "string"
+                    },
+                    "address_line2": {
+                      "title": "Address Line2",
+                      "type": "string"
+                    },
+                    "city": {
+                      "title": "City",
+                      "type": "string"
+                    },
+                    "state": {
+                      "title": "State",
+                      "type": "string"
+                    },
+                    "postal_code": {
+                      "title": "Postal Code",
+                      "type": "string"
+                    },
+                    "phone_number": {
+                      "title": "Phone Number",
+                      "type": "string"
+                    },
+                    "is_email_verified": {
+                      "title": "Is Email Verified",
+                      "type": "boolean"
+                    },
+                    "is_phone_number_verified": {
+                      "title": "Is Phone Number Verified",
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "account_id",
+                    "email_address",
+                    "first_name",
+                    "last_name",
+                    "account_type",
+                    "birthdate",
+                    "address_line1",
+                    "address_line2",
+                    "city",
+                    "state",
+                    "postal_code",
+                    "phone_number",
+                    "is_email_verified",
+                    "is_phone_number_verified"
+                  ],
+                  "title": "AccountView",
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/account/verify_email": {
+      "post": {
+        "summary": "Verify email",
+        "description": "",
+        "tags": [
+          "Accounts"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "account_id": {
+                    "format": "uuid",
+                    "title": "Account Id",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "account_id"
+                ],
+                "title": "AccountID",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "Unauthorized access"
+          },
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/v1/account/verify_phone_number": {
+      "post": {
+        "summary": "Verify phone number",
+        "description": "",
+        "tags": [
+          "Accounts"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "account_id": {
+                    "format": "uuid",
+                    "title": "Account Id",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "account_id"
+                ],
+                "title": "AccountID",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "Unauthorized access"
+          },
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/v1/account/delete": {
+      "post": {
+        "summary": "Delete account",
+        "description": "Hard delete.",
+        "tags": [
+          "Accounts"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "account_id": {
+                    "format": "uuid",
+                    "title": "Account Id",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "account_id"
+                ],
+                "title": "AccountDelete",
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "Unauthorized access"
+          },
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    }
+  }
+}
